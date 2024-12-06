@@ -1,1 +1,2 @@
-OMP_NUM_THREADS=2 torchrun --standalone --nproc_per_node=2 train_gpt2_1119.py
+OMP_NUM_THREADS=2 torchrun --standalone --nproc_per_node=2 train_gpt2_1204.py
+# OMP_NUM_THREADS=2 torchrun --standalone --nproc_per_node=2 train_gpt2_4090.py --gpt.flex_kernel_consumer True --train.sequence_length 1024 --train.batch_size 8
