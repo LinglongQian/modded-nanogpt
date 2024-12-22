@@ -298,7 +298,7 @@ class GPT(nn.Module):
             q_idx = block_idx[:, None]
             causal_bm = q_idx >= kv_idx
             causal_full_bm = q_idx > kv_idx
-            window_bm = q_idx - kv_idx < sliding_window_num_blocks
+            window_bm = abs(q_idx - kv_idx) < sliding_window_num_blocks
             window_full_bm = window_bm
             # document_bm = (docs_low[q_idx] <= docs_high[kv_idx]) & (docs_low[kv_idx] <= docs_high[q_idx])
             document_bm = (docs_low[:, None] <= docs_high) & (docs_low <= docs_high[:, None])
